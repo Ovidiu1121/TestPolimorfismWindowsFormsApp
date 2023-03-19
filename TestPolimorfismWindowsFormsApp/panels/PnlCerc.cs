@@ -10,17 +10,26 @@ namespace TestPolimorfismWindowsFormsApp.panels
     {
 
         private PnlPunct b;
-        private PnlLinie c;
+        private PnlLinie linie;
 
-        public PnlCerc()
+        public Label lblEticheta;
+        public Button btnAfisare;
+
+        public PnlCerc(PnlPunct b, PnlLinie linie)
         {
+            this.linie=linie;
+            this.b=b;
+            this.Location = new Point(b.X, b.Y);
+            this.Size=new Size(131, 78);
+            this.Name="pnlCerc";
+            this.BackColor=Color.Orange;
 
-        }
+            this.lblEticheta=new Label();
+            this.Controls.Add(this.lblEticheta);
+            this.lblEticheta.Location=new Point(44, 30);
+            this.lblEticheta.Size=new Size(38, 20);
+            this.lblEticheta.Text="Cerc";
 
-        public PnlCerc(PnlPunct b, PnlLinie c)
-        {
-            this.b = b;
-            this.c = c;
         }
 
         public PnlPunct B
@@ -29,10 +38,10 @@ namespace TestPolimorfismWindowsFormsApp.panels
             set { this.b = value; }
         }
 
-        public PnlLinie C
+        public PnlLinie Linie
         {
-            get { return this.c; }
-            set { this.c = value; }
+            get { return this.linie; }
+            set { this.linie = value; }
         }
 
         public override string afisare()
@@ -40,32 +49,42 @@ namespace TestPolimorfismWindowsFormsApp.panels
             string text = "--AFISARE CERC--\nCercul este format din\n";
 
             PnlPunct p = b;
-            PnlLinie l = c;
+            PnlLinie l = linie;
 
-            text+="punct: ("+p.X+","+p.Y+")\n"+"linie: punct 1 ("+l.A.X+","+l.A.Y+"), punct 2: ("+l.B.X+","+l.B.Y+")\n";
+            text+="punct: ("+p.X+","+p.Y+")\n"+"linie: punct "+l.A.X+","+l.A.Y;
 
             return text;
         }
 
         public override void translateX(int x)
         {
-            base.translateX(x);
+            this.b.translateX(x);
+            this.Location=this.b.Location;
         }
 
         public override void translateY(int y)
         {
-            base.translateY(y);
+            this.b.translateY(y);
+            this.Location=this.b.Location;
         }
 
         public override void translateYX(int x, int y)
         {
-            base.translateYX(x, y);
+            this.b.translateYX(x, y);
+            this.Location=this.b.Location;
         }
 
-        public override PnlFigura duplicare()
+        public void afisare_Click(object sender, EventArgs e)
         {
-            return new PnlCerc(this.b, this.c);
+            string text = "--AFISARE CERC--\nCercul este format din\n";
+
+            text+="punct: ("+this.b.X+","+this.b.Y+")\n"+"linie: "+this.linie.A.X+","+this.linie.A.Y;
+
+            MessageBox.Show(text);
+
         }
+
+
 
     }
 }

@@ -9,70 +9,54 @@ namespace TestPolimorfismWindowsFormsApp.panels
     public class PnlPunct:PnlFigura
     {
 
-        private double x;
-        private double y;
+        private Point point;
 
-        public PnlPunct()
+        public PnlPunct(int x, int y)
         {
-
+            this.point = new Point(x, y);
         }
 
-        public PnlPunct(double x, double y)
+        public int X
         {
-            this.x = x;
-            this.y = y;
+            get { return this.point.X; }
+            set { this.point.X = value; }
         }
 
-        public PnlPunct(string prop)
+        public int Y
         {
-            string[] a = prop.Split(",");
-
-            this.x = double.Parse(a[0]);
-            this.y = double.Parse(a[1]);
-
-        }
-
-        public double X
-        {
-            get { return this.x; }
-            set { this.x = value; }
-        }
-
-        public double Y
-        {
-            get { return this.y; }
-            set { this.y = value; }
+            get { return this.point.Y; }
+            set { this.point.Y = value; }
         }
 
         public override string afisare()
         {
             string text = "--AFISARE PUNCT--\n";
 
-            text+="x="+this.x+" y="+this.y+"\n";
+            text+="x="+this.point.X+" y="+this.point.Y+"\n";
 
             return text;
         }
 
         public override void translateX(int x)
         {
-            this.x+=x;
+            this.point.X+=x;
+
+            this.Location=this.point;
         }
 
         public override void translateY(int y)
         {
-            this.y+=y;
+            this.point.Y+=y;
+            this.Location=this.point;
         }
 
         public override void translateYX(int x, int y)
         {
-            this.x+=x;
-            this.y+=y;
+            this.point.X+=x;
+            this.point.Y+=y;
+            this.Location=this.point;
         }
 
-        public override PnlFigura duplicare()
-        {
-            return new PnlPunct(this.x, this.y);
-        }
 
     }
 }
