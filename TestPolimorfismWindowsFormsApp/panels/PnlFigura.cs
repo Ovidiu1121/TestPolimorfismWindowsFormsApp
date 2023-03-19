@@ -16,25 +16,20 @@ namespace TestPolimorfismWindowsFormsApp.panels
 
         public virtual void translateX(int x)
         {
-            Console.WriteLine("SUNT IN TRANSLATE X DIN BAZA");
+            
         }
 
         public virtual void translateY(int y)
         {
-            Console.WriteLine("SUNT IN TRANSLATE Y DIN BAZA");
+            
         }
 
         public virtual void translateYX(int x, int y)
         {
-            Console.WriteLine("SUNT IN TRANSLATE X SI Y DIN BAZA");
+            
         }
 
-        public virtual PnlFigura duplicare()
-        {
-            Console.WriteLine("SUNT IN DUPLICARE DIN BAZA");
-
-            return this;
-        }
+       
 
     }
 }

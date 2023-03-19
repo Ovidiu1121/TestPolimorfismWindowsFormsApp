@@ -10,17 +10,10 @@ namespace TestPolimorfismWindowsFormsApp.panels
     {
 
         private PnlPunct a;
-        private PnlPunct b;
 
-        public PnlLinie()
-        {
-
-        }
-
-        public PnlLinie(PnlPunct a, PnlPunct b)
+        public PnlLinie(PnlPunct a)
         {
             this.a=a;
-            this.b=b;
         }
 
         public PnlPunct A
@@ -29,20 +22,13 @@ namespace TestPolimorfismWindowsFormsApp.panels
             set { this.a = value; }
         }
 
-        public PnlPunct B
-        {
-            get { return this.b; }
-            set { this.b = value; }
-        }
-
         public override string afisare()
         {
             string text = "--AFISARE LINIE--\nLinia este formata din\n";
 
             PnlPunct p1 = a;
-            PnlPunct p2 = b;
 
-            text+="punct 1: ("+p1.X+","+p1.Y+")"+"\npunct 2: ("+p2.X+","+p2.Y+")\n";
+            text+="punct : ("+p1.X+","+p1.Y+")"+"\n";
 
             return text;
 
@@ -50,24 +36,22 @@ namespace TestPolimorfismWindowsFormsApp.panels
 
         public override void translateX(int x)
         {
-            base.translateX(x);
+            this.a.translateX(x);
+            this.Location=this.a.Location;
         }
 
         public override void translateY(int y)
         {
-            base.translateY(y);
+            this.a.translateY(y);
+            this.Location=this.a.Location;
         }
 
         public override void translateYX(int x, int y)
         {
-            base.translateYX(x, y);
+            this.a.translateYX(x, y);
+            this.Location=this.a.Location;
         }
 
-        public override PnlFigura duplicare()
-        {
-
-            return new PnlLinie(this.a, this.b);
-        }
 
     }
 }

@@ -8,57 +8,47 @@ namespace TestPolimorfismWindowsFormsApp.panels
 {
     public class PnlEticheta:PnlDreptunghi
     {
-        private string text;
+        public Label lblText;
+        private PnlPunct point;
 
-        public PnlEticheta()
+        public PnlEticheta(PnlPunct punct,PnlLinie linie1, PnlLinie linie2) : base(linie1, linie2)
         {
+            this.point=punct;
+            this.Location = new Point(punct.X,punct.Y);
+            this.Size = new Size(164, 59);
+            this.Name="pnlEticheta";
+            this.BackColor = Color.CornflowerBlue;
+
+            this.lblText=new Label();
+            this.Controls.Add(this.lblText);
+            this.lblText.Location=new Point(50, 21);
+            this.lblText.Size=new Size(62, 20);
+            this.lblText.Text="Eticheta";
 
         }
 
-        public PnlEticheta(PnlLinie linie1, PnlLinie linie2, string textEticheta) : base(linie1, linie2)
+        public PnlPunct Point
         {
-            this.text = textEticheta;
-        }
-
-        public PnlEticheta(string text)
-        {
-            this.text=text;
-        }
-
-        public string Text
-        {
-            get { return this.text; }
-            set { this.text = value; }
-        }
-
-        public override string afisare()
-        {
-            string t = "--AFISARE ETICHETA--\n";
-
-            t+=this.text+"\n";
-
-            return t;
-
+            get { return this.point; }
+            set { this.point = value; }
         }
 
         public override void translateX(int x)
         {
-            base.translateX(x);
+            this.point.translateX(x);
+            this.Location=this.point.Location;
         }
 
         public override void translateY(int y)
         {
-            base.translateY(y);
+            this.point.translateY(y);
+            this.Location=this.point.Location;
         }
 
         public override void translateYX(int x, int y)
         {
-            base.translateYX(x, y);
-        }
-
-        public override PnlFigura duplicare()
-        {
-            return new PnlEticheta(this.text);
+            this.point.translateYX(x,y);
+            this.Location=this.point.Location;
         }
 
     }
