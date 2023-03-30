@@ -15,13 +15,13 @@ namespace TestPolimorfismWindowsFormsApp.panels
         {
             this.point=punct;
             this.Location = new Point(punct.X,punct.Y);
-            this.Size = new Size(164, 59);
+            this.Size = new Size(101, 43);
             this.Name="pnlEticheta";
             this.BackColor = Color.CornflowerBlue;
 
             this.lblText=new Label();
             this.Controls.Add(this.lblText);
-            this.lblText.Location=new Point(50, 21);
+            this.lblText.Location=new Point(19, 12);
             this.lblText.Size=new Size(62, 20);
             this.lblText.Text="Eticheta";
 

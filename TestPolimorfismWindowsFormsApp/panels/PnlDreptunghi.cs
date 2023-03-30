@@ -20,13 +20,13 @@ namespace TestPolimorfismWindowsFormsApp.panels
             this.linie2=linie2;
 
             this.Location = new Point(linie1.A.X,linie1.A.Y);
-            this.Size = new Size(172, 67);
+            this.Size = new Size(109, 41);
             this.BackColor = Color.Coral;
             this.Name = "pnlDreptunghi";
 
             this.lblTitlu = new Label();
             this.Controls.Add(lblTitlu);
-            this.lblTitlu.Location = new Point(39, 21);
+            this.lblTitlu.Location = new Point(15, 12);
             this.lblTitlu.Size = new Size(84, 20);
             this.lblTitlu.Text="Dreptunghi"; 
 
