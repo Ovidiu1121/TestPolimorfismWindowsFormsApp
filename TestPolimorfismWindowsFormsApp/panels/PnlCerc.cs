@@ -19,14 +19,15 @@ namespace TestPolimorfismWindowsFormsApp.panels
         {
             this.linie=linie;
             this.b=b;
+
             this.Location = new Point(b.X, b.Y);
-            this.Size=new Size(131, 78);
+            this.Size=new Size(94, 58);
             this.Name="pnlCerc";
             this.BackColor=Color.Orange;
 
             this.lblEticheta=new Label();
             this.Controls.Add(this.lblEticheta);
-            this.lblEticheta.Location=new Point(44, 30);
+            this.lblEticheta.Location=new Point(26, 21);
             this.lblEticheta.Size=new Size(38, 20);
             this.lblEticheta.Text="Cerc";
 
@@ -74,16 +75,7 @@ namespace TestPolimorfismWindowsFormsApp.panels
             this.Location=this.b.Location;
         }
 
-        public void afisare_Click(object sender, EventArgs e)
-        {
-            string text = "--AFISARE CERC--\nCercul este format din\n";
-
-            text+="punct: ("+this.b.X+","+this.b.Y+")\n"+"linie: "+this.linie.A.X+","+this.linie.A.Y;
-
-            MessageBox.Show(text);
-
-        }
-
+        
 
 
     }
